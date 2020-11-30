@@ -5,7 +5,9 @@
 
  jobs:
    build:
-     executor: win/default     
+     publish-windows64: 
+         machine: 
+            image: windows-server-2019-vs2019:stable     
     
      steps:
        - checkout
