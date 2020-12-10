@@ -1,0 +1,19 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+  pull_request: {}
+
+jobs:
+  build-linux:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: recursive
+      - name: build
+        run: msbuild WpfApplication7.sln
+      - name: debug
+        run: WpfApplication7\bin\Debug\WpfApplication7.exe
